@@ -1,7 +1,14 @@
 import React from "react";
+import Header from "./header/Header";
+import translate from "./../i18nProvider/translate";
 
 function App() {
-  return <h1>welocome to centime</h1>;
+  return (
+    <div>
+      <Header />
+      {translate("hello")}
+    </div>
+  );
 }
 
 export default App;
