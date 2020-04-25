@@ -8,9 +8,9 @@ import ProviderIntl from "./i18nProvider/ProviderIntl";
 let local = navigator.language;
 
 if (local.slice(0, 2) !== "en") {
-  local = "fr";
+  local = "fr-ca";
 } else {
-  local = "en";
+  local = "en-us";
 }
 render(
   <ProviderIntl locale={local}>
