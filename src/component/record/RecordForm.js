@@ -6,7 +6,7 @@ import TextInput from "../common/TextInput";
 function RecordForm({ record, onSave, errors, onChange, saving = false }) {
   return (
     <form onSubmit={onSave}>
-      <h2>{record.id ? "Edit" : "Add "} Record</h2>
+      {/* <h2>{record.id ? "Edit" : "Add "} Record</h2> */}
       {errors && errors.onSave && (
         <div className="alert alert-danger" role="alert">
           {errors.onSave}

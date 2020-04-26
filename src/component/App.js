@@ -1,23 +1,25 @@
 import React from "react";
 import Header from "./common/Header";
 import HomePage from "./home-page/HomePage";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import RecordPage from "./record/RecordPage";
+import { Switch, Route } from "react-router-dom";
 import PageNotFound from "./common/PageNotFound";
 import AboutPage from "./aboutPage/AboutPage";
+import ManageRecordPage from "./record/ManageRecordPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <div>
-      <Router>
-        <Header />
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/records" component={RecordPage} />
-          <Route component={PageNotFound} />
-        </Switch>
-      </Router>
+      <Header />
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/record/:id" component={ManageRecordPage} />
+        <Route path="/record" component={ManageRecordPage} />
+        <Route component={PageNotFound} />
+      </Switch>
+      <ToastContainer autoClose={3000} hideProgressBar />
     </div>
   );
 }

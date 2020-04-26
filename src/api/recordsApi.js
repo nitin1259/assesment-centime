@@ -11,7 +11,6 @@ export function saveRecord(record) {
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
       ...record,
-      authorId: parseInt(record.authorId, 10), // Parse authorId to a number (in case it was sent as a string).
     }),
   })
     .then(handleResponse)

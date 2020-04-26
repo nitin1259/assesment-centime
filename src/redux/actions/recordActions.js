@@ -19,9 +19,9 @@ export function saveRecord(record) {
     return recordApi
       .saveRecord(record)
       .then((savedRecord) => {
-        savedRecord.id
-          ? dispatch({ type: actionTypes.UPDATE_RECORD, savedRecord })
-          : dispatch({ type: actionTypes.CREATE_RECORD, savedRecord });
+        record.id
+          ? dispatch({ type: actionTypes.UPDATE_RECORD, record: savedRecord })
+          : dispatch({ type: actionTypes.CREATE_RECORD, record: savedRecord });
       })
       .catch((error) => {
         throw error;

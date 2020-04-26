@@ -17,7 +17,7 @@ export function handleError(error) {
 }
 
 export const newRecord = {
-  titile: "",
+  title: "",
   from_party: "",
   to_party: "",
   amount: 0,

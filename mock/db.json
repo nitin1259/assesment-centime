@@ -2,104 +2,38 @@
   "records": [
     {
       "id": 1,
-      "titile": "Extra bonus",
+      "title": "Extra bonus",
       "from_party": "BOA",
-      "to_party": "Benz",
+      "to_party": "Benz M",
       "amount": 34000
     },
     {
       "id": 2,
-      "titile": "hostility",
+      "title": "hostility",
       "from_party": "GOldMan",
       "to_party": "Centime",
       "amount": 41000
     },
     {
       "id": 3,
-      "titile": "Same as Perks",
+      "title": "Same as Perks",
       "from_party": "Amazon",
       "to_party": "Benz",
       "amount": 21000
     },
     {
       "id": 4,
-      "titile": "Timber times",
+      "title": "Timber times",
       "from_party": "Benz",
       "to_party": "Centime",
       "amount": 66000
     },
     {
       "id": 5,
-      "titile": "Extra bonus",
+      "title": "Extra bonus",
       "from_party": "HDFC",
       "to_party": "Ferrari",
       "amount": 33000
-    },
-    {
-      "titile": "",
-      "from_party": "Centime",
-      "to_party": "MasterCard",
-      "amount": "50000",
-      "title": "oracle cloud",
-      "authorId": null,
-      "createdAt": 1587889196888,
-      "slug": "oracle-cloud",
-      "id": 6
-    },
-    {
-      "titile": "",
-      "from_party": "Centime",
-      "to_party": "Apple",
-      "amount": "20000",
-      "title": "Securing React Apps with Auth - 99",
-      "authorId": null,
-      "createdAt": 1587889324933,
-      "slug": "securing-react-apps-with-auth-99",
-      "id": 7
-    },
-    {
-      "titile": "",
-      "from_party": "Centime",
-      "to_party": "Bezoz",
-      "amount": "300000",
-      "title": "oracle cloud",
-      "authorId": null,
-      "createdAt": 1587889750740,
-      "slug": "oracle-cloud",
-      "id": 8
-    },
-    {
-      "titile": "",
-      "from_party": "Oracle",
-      "to_party": "Centime",
-      "amount": "300000",
-      "title": "oracle cloud",
-      "authorId": null,
-      "createdAt": 1587889912142,
-      "slug": "oracle-cloud",
-      "id": 9
-    },
-    {
-      "titile": "",
-      "from_party": "Oracle",
-      "to_party": "Centime",
-      "amount": "300000",
-      "title": "oracle cloud",
-      "authorId": null,
-      "createdAt": 1587889951155,
-      "slug": "oracle-cloud",
-      "id": 10
-    },
-    {
-      "titile": "",
-      "from_party": "Oracle",
-      "to_party": "Centime",
-      "amount": "22000",
-      "title": "Oracle Cloud Session",
-      "authorId": null,
-      "createdAt": 1587890062501,
-      "slug": "oracle-cloud-session",
-      "id": 11
     }
   ]
 }

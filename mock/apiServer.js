@@ -45,11 +45,10 @@ server.use((req, res, next) => {
 });
 
 server.post("/records/", function (req, res, next) {
-  const error = validateCourse(req.body);
+  const error = validateRecord(req.body);
   if (error) {
     res.status(400).send(error);
   } else {
-    req.body.slug = createSlug(req.body.title); // Generate a slug for new courses.
     next();
   }
 });
@@ -63,20 +62,10 @@ server.listen(port, () => {
   console.log(`JSON Server is running on port ${port}`);
 });
 
-// Centralized logic
-
-// Returns a URL friendly slug
-function createSlug(value) {
-  return value
-    .replace(/[^a-z0-9_]+/gi, "-")
-    .replace(/^-|-$/g, "")
-    .toLowerCase();
-}
-
-function validateCourse(record) {
+function validateRecord(record) {
   if (!record.title) return "Title is required.";
   if (!record.from_party) return "From is required.";
   if (!record.to_party) return "To is required.";
-  if (!record.amount) return "Amoutn is required.";
+  if (!record.amount) return "Amount is required.";
   return "";
 }
