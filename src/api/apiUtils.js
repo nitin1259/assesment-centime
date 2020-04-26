@@ -15,3 +15,10 @@ export function handleError(error) {
   console.error("API call failed. " + error);
   throw error;
 }
+
+export const newRecord = {
+  titile: "",
+  from_party: "",
+  to_party: "",
+  amount: 0,
+};

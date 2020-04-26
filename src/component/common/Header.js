@@ -1,21 +1,14 @@
 import React from "react";
 import logo from "./../../logo.svg";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./common.css";
 
 const activeStyle = { color: "orange" };
 
 function Header() {
   return (
     <header>
-      <img
-        alt="centine"
-        src={logo}
-        style={{
-          height: "50px",
-          width: "auto",
-          verticalAlign: "bottom",
-        }}
-      />
+      <img alt="centine" src={logo} className="logo-img" />
       <nav>
         <NavLink to="/" activeStyle={activeStyle} exact>
           Home

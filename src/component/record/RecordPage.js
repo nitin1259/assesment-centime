@@ -1,10 +1,10 @@
 import React from "react";
+import ManageRecordPage from "./ManageRecordPage";
 
 function RecordPage() {
   return (
-    <div>
-      <h2>Record Page</h2>
-      <p>Here Your can add and check records</p>
+    <div style={{ width: "50%", margin: "auto" }}>
+      <ManageRecordPage />
     </div>
   );
 }
