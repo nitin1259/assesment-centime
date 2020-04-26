@@ -18,7 +18,7 @@ function RecordPage({ records, actions }) {
   }
 
   return (
-    <>
+    <section className="section-graph">
       {redirectToAddRecordPage && <Redirect to="/record" />}
       <button
         style={{ marginBottom: 20 }}
@@ -29,7 +29,7 @@ function RecordPage({ records, actions }) {
       </button>
 
       <RecordList records={records} onDeleteClick={handleDeleteRecord} />
-    </>
+    </section>
   );
 }
 

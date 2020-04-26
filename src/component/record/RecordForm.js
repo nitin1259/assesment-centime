@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TextInput from "../common/TextInput";
+import "./Record.css";
 // import SelectInput from "../common/SelectInput";
 
 function RecordForm({ record, onSave, errors, onChange, saving = false }) {
   return (
-    <form onSubmit={onSave}>
-      {/* <h2>{record.id ? "Edit" : "Add "} Record</h2> */}
+    <form onSubmit={onSave} className="form-class">
+      <h2>{record.id ? "Edit" : "Add "} Record</h2>
       {errors && errors.onSave && (
         <div className="alert alert-danger" role="alert">
           {errors.onSave}

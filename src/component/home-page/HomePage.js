@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { loadRecords } from "./../../redux/actions/recordActions";
 import RecordPage from "../record/RecordPage";
 // import * as recordApi from "./../../api/recordsApi";
+import "./HomePage.css";
 
 function HomePage({ records, loadRecords }) {
   const [data, setData] = useState(null);
@@ -23,10 +24,10 @@ function HomePage({ records, loadRecords }) {
   }, [records.length]);
 
   return (
-    <div>
+    <main className="main-home">
       <GraphicSankey data={data} />
       <RecordPage records />
-    </div>
+    </main>
   );
 }
 

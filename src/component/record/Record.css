@@ -1,0 +1,9 @@
+.section-graph,
+.section-record {
+  flex: 0 0 48%;
+}
+
+.form-class {
+  width: 50%;
+  margin: auto;
+}

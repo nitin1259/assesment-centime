@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "react-google-charts";
+import "../record/Record.css";
 
 function GraphicSankey({ data }) {
   var colors = [
@@ -26,7 +27,7 @@ function GraphicSankey({ data }) {
     },
   };
   return (
-    <div style={{ margin: "auto", maxWidth: 900 }}>
+    <section className="section-graph">
       <Chart
         width={600}
         height={"300px"}
@@ -50,7 +51,7 @@ function GraphicSankey({ data }) {
         rows={data}
         rootProps={{ "data-testid": "1" }}
       />
-    </div>
+    </section>
   );
 }
 
