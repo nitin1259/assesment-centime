@@ -1,78 +1,51 @@
 import React, { useEffect, useState } from "react";
-import translate from "../../i18nProvider/translate";
-import { Chart } from "react-google-charts";
-import * as records from "./../../api/recordsApi";
 import { Link } from "react-router-dom";
+import GraphicSankey from "../charts/Graphic-Sankey";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { loadRecords } from "./../../redux/actions/recordActions";
+// import * as recordApi from "./../../api/recordsApi";
 
-function HomePage() {
+function HomePage({ records, loadRecords }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    records
-      .getRecords()
-      .then((res) =>
-        res.map((record) => {
-          return [record.from_party, record.to_party, record.amount];
-        })
-      )
-      .then((data) => setData(data));
-  }, []);
-  var colors = [
-    "#a6cee3",
-    "#b2df8a",
-    "#fb9a99",
-    "#fdbf6f",
-    "#cab2d6",
-    "#ffff99",
-    "#1f78b4",
-    "#33a02c",
-  ];
+    // console.log(records);
+    if (records.length === 0) {
+      loadRecords().catch((error) => {
+        console.log("Error getting record " + error);
+      });
+      console.log(records);
+    }
 
-  var options = {
-    height: 400,
-    sankey: {
-      node: {
-        colors: colors,
-      },
-      link: {
-        colorMode: "gradient",
-        colors: colors,
-      },
-    },
-  };
+    const somedata = records.map((rec) => {
+      return [rec.from_party, rec.to_party, rec.amount];
+    });
+    setData(somedata);
+  }, [records.length]);
 
-  console.log(data);
   return (
     <>
-      {translate("hello")}
       <Link to="/records">Records</Link>
-      <div style={{ margin: "auto", maxWidth: 900 }}>
-        <Chart
-          width={600}
-          height={"300px"}
-          chartType="Sankey"
-          loader={<div>Loading Chart</div>}
-          options={options}
-          columns={[
-            {
-              type: "string",
-              label: "From",
-            },
-            {
-              type: "string",
-              label: "to",
-            },
-            {
-              type: "number",
-              label: "amount",
-            },
-          ]}
-          rows={data}
-          rootProps={{ "data-testid": "2" }}
-        />
-      </div>
+      <br />
+      <GraphicSankey data={data} />
     </>
   );
 }
 
-export default HomePage;
+HomePage.propTypes = {
+  records: PropTypes.array.isRequired,
+  loadRecords: PropTypes.func.isRequired,
+};
+
+const mapStateToPorps = ({ records }) => {
+  return {
+    records,
+  };
+};
+
+const mapDispatchToProps = {
+  loadRecords: loadRecords,
+};
+
+export default connect(mapStateToPorps, mapDispatchToProps)(HomePage);

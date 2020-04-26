@@ -1,0 +1,4 @@
+export const LOAD_RECORDS = "LOAD_RECORDS";
+export const CREATE_RECORD = "CREATE_RECORD";
+export const UPDATE_RECORD = "UPDATE_RECORD";
+export const DELETE_RECORD = "DELETE_RECORD";

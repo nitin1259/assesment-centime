@@ -15,7 +15,7 @@ function Header() {
         </NavLink>{" "}
         |
         <NavLink to="/records" activeStyle={activeStyle}>
-          Courses
+          Record
         </NavLink>{" "}
         |
         <NavLink to="/about" activeStyle={activeStyle}>
