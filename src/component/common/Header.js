@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./../../logo.svg";
+import logo from "./../../centime.logo.png";
 import { NavLink } from "react-router-dom";
 import "./common.css";
 
@@ -7,20 +7,19 @@ const activeStyle = { color: "orange" };
 
 function Header() {
   return (
-    <header>
-      <img alt="centine" src={logo} className="logo-img" />
-      <nav>
+    <header className="header-class">
+      <nav className="nav-link">
         <NavLink to="/" activeStyle={activeStyle} exact>
-          Home
+          <img alt="centine" src={logo} className="logo-img" />
         </NavLink>{" "}
-        |
+        {/* |
         <NavLink to="/record" activeStyle={activeStyle}>
-          Record
+          New Record
         </NavLink>{" "}
         |
         <NavLink to="/about" activeStyle={activeStyle}>
           About
-        </NavLink>
+        </NavLink> */}
       </nav>
     </header>
   );

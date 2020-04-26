@@ -15,3 +15,12 @@
   vertical-align: baseline;
   float: left;
 }
+
+.header-class {
+  background-color: #333;
+  height: 80px;
+}
+
+.nav-link a {
+  color: #333;
+}

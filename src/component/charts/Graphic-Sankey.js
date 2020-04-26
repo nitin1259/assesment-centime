@@ -28,6 +28,7 @@ function GraphicSankey({ data }) {
   };
   return (
     <section className="section-graph">
+      <h2 className="graph-header">Inflow and Outflows</h2>
       <Chart
         width={600}
         height={"300px"}

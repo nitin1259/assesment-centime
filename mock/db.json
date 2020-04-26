@@ -4,12 +4,12 @@
       "id": 1,
       "title": "Extra bonus",
       "from_party": "BOA",
-      "to_party": "Benz M",
-      "amount": 30000
+      "to_party": "Benz",
+      "amount": 34000
     },
     {
       "id": 2,
-      "title": "hostility",
+      "title": "hostility-info",
       "from_party": "GOldMan",
       "to_party": "Centime",
       "amount": 41000
