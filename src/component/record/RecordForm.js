@@ -2,12 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import TextInput from "../common/TextInput";
 import "./Record.css";
+import translate from "../../i18nProvider/translate";
+import { Link } from "react-router-dom";
+import "./Record.css";
 // import SelectInput from "../common/SelectInput";
 
 function RecordForm({ record, onSave, errors, onChange, saving = false }) {
   return (
     <form onSubmit={onSave} className="form-class">
-      <h2>{record.id ? "Edit" : "Add "} Record</h2>
+      <h2>{record.id ? translate("editRecord") : translate("addRecord")}</h2>
       {errors && errors.onSave && (
         <div className="alert alert-danger" role="alert">
           {errors.onSave}
@@ -48,6 +51,9 @@ function RecordForm({ record, onSave, errors, onChange, saving = false }) {
       <button type="submit" disabled={saving} className="btn btn-primary">
         {saving ? "Saving..." : "Save"}
       </button>
+      <Link to="/" className="btn btn-primary add-record">
+        {translate("close")}
+      </Link>
     </form>
   );
 }

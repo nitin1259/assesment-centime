@@ -1,6 +1,7 @@
 import React from "react";
 import Chart from "react-google-charts";
 import "../record/Record.css";
+import translate from "../../i18nProvider/translate";
 
 function GraphicSankey({ data }) {
   var colors = [
@@ -28,7 +29,7 @@ function GraphicSankey({ data }) {
   };
   return (
     <section className="section-graph">
-      <h2 className="graph-header">Inflow and Outflows</h2>
+      <h2 className="graph-header">{translate("inoutFlow")}</h2>
       <Chart
         width={600}
         height={"300px"}

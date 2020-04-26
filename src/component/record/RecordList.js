@@ -23,7 +23,7 @@ function RecordList({ records, onDeleteClick }) {
               </td>
               <td>{record.from_party}</td>
               <td>{record.to_party}</td>
-              <td>{record.amount}</td>
+              <td>$ {record.amount}</td>
               <td>
                 <button
                   className="btn btn-outline-danger"

@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import { Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import RecordList from "./RecordList";
+import translate from "./../../i18nProvider/translate";
 
 function RecordPage({ records, actions }) {
   const [redirectToAddRecordPage, setRedirectToAddRecordPage] = useState(false);
@@ -25,7 +26,7 @@ function RecordPage({ records, actions }) {
         className="btn btn-primary add-record"
         onClick={() => setRedirectToAddRecordPage(true)}
       >
-        Add Record
+        {translate("addRecord")}
       </button>
 
       <RecordList records={records} onDeleteClick={handleDeleteRecord} />

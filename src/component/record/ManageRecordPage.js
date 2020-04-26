@@ -5,6 +5,7 @@ import { newRecord } from "../../api/apiUtils";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
+import translate from "../../i18nProvider/translate";
 
 function ManageRecordPage({
   saveRecord,
@@ -29,10 +30,10 @@ function ManageRecordPage({
 
   function isValidForm() {
     const errors = {};
-    if (!record.title) errors.title = "Title is required";
-    if (!record.from_party) errors.from_party = "From is required";
-    if (!record.to_party) errors.to_party = "To is required";
-    if (!record.amount) errors.amount = "Amount is required";
+    if (!record.title) errors.title = translate("titleReq");
+    if (!record.from_party) errors.from_party = translate("fromReq");
+    if (!record.to_party) errors.to_party = translate("toReq");
+    if (!record.amount) errors.amount = translate("amountReq");
 
     setErrors(errors);
     return Object.keys(errors).length === 0;
