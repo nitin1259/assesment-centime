@@ -20,5 +20,5 @@ export const newRecord = {
   title: "",
   from_party: "",
   to_party: "",
-  amount: 0,
+  amount: "",
 };

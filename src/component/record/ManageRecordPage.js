@@ -61,9 +61,10 @@ function ManageRecordPage({
   function handleChange(event) {
     event.preventDefault();
     const { name, value } = event.target;
+    console.log(name + ": " + value);
     setRecord((prevRecord) => ({
       ...prevRecord,
-      [name]: name === "amount" ? parseInt(value, 10) : value,
+      [name]: name === "id" ? parseInt(value, 10) : value,
     }));
   }
 

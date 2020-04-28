@@ -4,7 +4,7 @@ import RecordForm from "./RecordForm";
 
 afterEach(cleanup);
 
-function renderCourseForm(args) {
+function renderRecordForm(args) {
   let defaultProps = {
     record: {},
     saving: false,
@@ -17,17 +17,18 @@ function renderCourseForm(args) {
   return render(<RecordForm {...props} />);
 }
 
-it("should render Add Course header", () => {
-  const { getByText } = renderCourseForm();
+it("should render Add Record header", () => {
+  const { getByText } = renderRecordForm();
+  console.log("Testing render add: " + getByText);
   getByText("Add Record");
 });
 
 it('should label save button as "Save" when not saving', () => {
-  const { getByText } = renderCourseForm();
+  const { getByText } = renderRecordForm();
   getByText("Save");
 });
 
 it('should label save button as "Saving..." when saving', () => {
-  const { getByText } = renderCourseForm({ saving: true });
+  const { getByText } = renderRecordForm({ saving: true });
   getByText("Saving...");
 });
