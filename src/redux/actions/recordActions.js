@@ -3,14 +3,17 @@ import * as recordApi from "./../../api/recordsApi";
 
 export function loadRecords() {
   return function (dispatch) {
-    return recordApi
-      .getRecords()
-      .then((records) => {
-        dispatch({ type: actionTypes.LOAD_RECORDS, records });
-      })
-      .catch((error) => {
-        throw error;
-      });
+    return (
+      recordApi
+        // .getRecords()
+        .getFilterRecords("amount", 15000)
+        .then((records) => {
+          dispatch({ type: actionTypes.LOAD_RECORDS, records });
+        })
+        .catch((error) => {
+          throw error;
+        })
+    );
   };
 }
 
