@@ -24,3 +24,10 @@
 .nav-link a {
   color: #333;
 }
+
+.lang-change-btn {
+  margin-right: 40px;
+  margin-top: 10px;
+  vertical-align: middle;
+  float: right;
+}
