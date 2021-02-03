@@ -1,12 +1,12 @@
 import * as actionTypes from "./actionTypes";
 import * as recordApi from "./../../api/recordsApi";
 
-export function loadRecords() {
+export function loadRecords(field = "amount", amount = 0) {
   return function (dispatch) {
     return (
       recordApi
         // .getRecords()
-        .getFilterRecords("amount", 15000)
+        .getFilterRecords(field, amount)
         .then((records) => {
           dispatch({ type: actionTypes.LOAD_RECORDS, records });
         })

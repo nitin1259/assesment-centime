@@ -39,7 +39,7 @@ function App() {
     <div>
       <LangContext.Provider value={{ langState, langDispatch: dispatch }}>
         <ProviderIntl locale={langState}>
-          <p style={{ color: "blue" }}>{langState}</p>
+          {/* <p style={{ color: "blue" }}>{langState}</p> */}
           <Header />
           <Switch>
             <Route path="/" exact component={HomePage} />
