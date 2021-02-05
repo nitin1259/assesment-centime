@@ -2,3 +2,19 @@
   display: flex;
   margin-top: 50px;
 }
+
+.main-home__filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #888;
+}
+
+.main-home__filter_value .main-home__filter_key {
+  width: 150px;
+  height: 50px;
+}
+
+.main-home__filter_operator {
+  width: auto;
+}

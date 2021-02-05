@@ -9,6 +9,7 @@ import "./HomePage.css";
 
 function HomePage({ records, loadRecords }) {
   const [data, setData] = useState(null);
+  const [fieldValue, setFeildValue] = useState("");
 
   useEffect(() => {
     if (records.length === 0) {
@@ -23,11 +24,35 @@ function HomePage({ records, loadRecords }) {
     setData(somedata);
   }, [records.length]);
 
+  const handleChange = (e) => {
+    setFeildValue(e.target.value);
+  };
+
   return (
-    <main className="main-home">
-      <GraphicSankey data={data} />
-      <RecordPage records />
-    </main>
+    <div>
+      <div className="main-home__filter">
+        <select value="Amount" className="main-home__filter_key">
+          <option value="From ">From</option>
+          <option value="To">To</option>
+          <option value="Amount">Amount</option>
+        </select>
+        <select value="equals" className="main-home__filter_operator">
+          <option value="greaterthan ">{">"}</option>
+          <option value="lowerthan">{"<"}</option>
+          <option value="equals">{"="}</option>
+        </select>
+        <input
+          value={fieldValue}
+          placeholder="value"
+          className="main-home__filter_value"
+          onChange={handleChange}
+        />
+      </div>
+      <main className="main-home">
+        <GraphicSankey data={data} />
+        <RecordPage records />
+      </main>
+    </div>
   );
 }
 
