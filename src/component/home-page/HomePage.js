@@ -28,6 +28,10 @@ function HomePage({ records, loadRecords }) {
     setFeildValue(e.target.value);
   };
 
+  const handleClick = () => {
+    console.log("handle click");
+  };
+
   return (
     <div>
       <div className="main-home__filter">
@@ -47,6 +51,7 @@ function HomePage({ records, loadRecords }) {
           className="main-home__filter_value"
           onChange={handleChange}
         />
+        <button onClick={handleClick}>Filter Records</button>
       </div>
       <main className="main-home">
         <GraphicSankey data={data} />
