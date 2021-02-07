@@ -88,7 +88,7 @@ ManageRecordPage.propTypes = {
 };
 
 function getRecordByID(records, id) {
-  return records.find((record) => record.id == id) || null;
+  return records.find((record) => record.id === id) || null;
 }
 
 const mapStateToPorps = (state, ownProps) => {

@@ -7,9 +7,11 @@ import RecordPage from "../record/RecordPage";
 // import * as recordApi from "./../../api/recordsApi";
 import "./HomePage.css";
 
-function HomePage({ records, loadRecords }) {
+function HomePage({ records, loadRecords, getFilterRecords }) {
   const [data, setData] = useState(null);
   const [fieldValue, setFeildValue] = useState("");
+  const [operatorValue, setOperatorValue] = useState("equals");
+  const [fieldKey, setFieldKey] = useState("Amount");
 
   useEffect(() => {
     if (records.length === 0) {
@@ -25,28 +27,55 @@ function HomePage({ records, loadRecords }) {
   }, [records.length]);
 
   const handleChange = (e) => {
-    setFeildValue(e.target.value);
+    console.log(e.target.name);
+    switch (e.target.name) {
+      case "fieldValue":
+        console.log("coming in" + e.target.value);
+        setFeildValue(e.target.value);
+        break;
+      case "fieldKey":
+        setFieldKey(e.target.value);
+        break;
+      case "operatorValue":
+        setOperatorValue(e.target.value);
+        break;
+
+      default:
+        break;
+    }
   };
 
   const handleClick = () => {
     console.log("handle click");
+    // TODO
   };
 
   return (
     <div>
       <div className="main-home__filter">
-        <select value="Amount" className="main-home__filter_key">
+        <select
+          value={fieldKey}
+          onChange={handleChange}
+          name="fieldKey"
+          className="main-home__filter_key"
+        >
           <option value="From ">From</option>
           <option value="To">To</option>
           <option value="Amount">Amount</option>
         </select>
-        <select value="equals" className="main-home__filter_operator">
+        <select
+          value={operatorValue}
+          name="operatorValue"
+          onChange={handleChange}
+          className="main-home__filter_operator"
+        >
           <option value="greaterthan ">{">"}</option>
           <option value="lowerthan">{"<"}</option>
           <option value="equals">{"="}</option>
         </select>
         <input
           value={fieldValue}
+          name="fieldValue"
           placeholder="value"
           className="main-home__filter_value"
           onChange={handleChange}
