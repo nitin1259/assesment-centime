@@ -13,7 +13,7 @@ import "./HomePage.css";
 function HomePage({ records, loadRecords, getFilterRecords }) {
   const [data, setData] = useState(null);
   const [fieldValue, setFeildValue] = useState("");
-  const [operatorValue, setOperatorValue] = useState("equals");
+  const [operatorValue, setOperatorValue] = useState("greaterthan");
   const [fieldKey, setFieldKey] = useState("amount");
 
   useEffect(() => {
