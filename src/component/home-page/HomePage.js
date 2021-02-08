@@ -68,8 +68,8 @@ function HomePage({ records, loadRecords, getFilterRecords }) {
           name="fieldKey"
           className="main-home__filter_key"
         >
-          <option value="from ">From</option>
-          <option value="to">To</option>
+          {/* <option value="from ">From</option>
+          <option value="to">To</option> */}
           <option value="amount">Amount</option>
         </select>
         <select
