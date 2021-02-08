@@ -1,19 +1,30 @@
 import * as actionTypes from "./actionTypes";
 import * as recordApi from "./../../api/recordsApi";
 
-export function loadRecords(field = "amount", amount = 0) {
+export function loadRecords() {
   return function (dispatch) {
-    return (
-      recordApi
-        // .getRecords()
-        .getFilterRecords(field, amount)
-        .then((records) => {
-          dispatch({ type: actionTypes.LOAD_RECORDS, records });
-        })
-        .catch((error) => {
-          throw error;
-        })
-    );
+    return recordApi
+      .getRecords()
+      .then((records) => {
+        dispatch({ type: actionTypes.LOAD_RECORDS, records });
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };
+}
+
+export function getFilterRecords(field = "amount", value = 0) {
+  return function (dispatch) {
+    // console.log(field, value);
+    return recordApi
+      .getFilterRecords(field, value)
+      .then((records) => {
+        dispatch({ type: actionTypes.LOAD_RECORDS, records });
+      })
+      .catch((error) => {
+        throw error;
+      });
   };
 }
 

@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import GraphicSankey from "../charts/Graphic-Sankey";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { loadRecords } from "./../../redux/actions/recordActions";
+import {
+  loadRecords,
+  getFilterRecords,
+} from "./../../redux/actions/recordActions";
 import RecordPage from "../record/RecordPage";
 // import * as recordApi from "./../../api/recordsApi";
 import "./HomePage.css";
@@ -11,7 +14,7 @@ function HomePage({ records, loadRecords, getFilterRecords }) {
   const [data, setData] = useState(null);
   const [fieldValue, setFeildValue] = useState("");
   const [operatorValue, setOperatorValue] = useState("equals");
-  const [fieldKey, setFieldKey] = useState("Amount");
+  const [fieldKey, setFieldKey] = useState("amount");
 
   useEffect(() => {
     if (records.length === 0) {
@@ -27,10 +30,8 @@ function HomePage({ records, loadRecords, getFilterRecords }) {
   }, [records.length]);
 
   const handleChange = (e) => {
-    console.log(e.target.name);
     switch (e.target.name) {
       case "fieldValue":
-        console.log("coming in" + e.target.value);
         setFeildValue(e.target.value);
         break;
       case "fieldKey":
@@ -48,6 +49,14 @@ function HomePage({ records, loadRecords, getFilterRecords }) {
   const handleClick = () => {
     console.log("handle click");
     // TODO
+    getFilterRecords(fieldKey, fieldValue).catch((error) => {
+      console.log("Error getting record " + error);
+    });
+
+    const somedata = records.map((rec) => {
+      return [rec.from_party, rec.to_party, rec.amount];
+    });
+    setData(somedata);
   };
 
   return (
@@ -59,9 +68,9 @@ function HomePage({ records, loadRecords, getFilterRecords }) {
           name="fieldKey"
           className="main-home__filter_key"
         >
-          <option value="From ">From</option>
-          <option value="To">To</option>
-          <option value="Amount">Amount</option>
+          <option value="from ">From</option>
+          <option value="to">To</option>
+          <option value="amount">Amount</option>
         </select>
         <select
           value={operatorValue}
@@ -93,6 +102,7 @@ function HomePage({ records, loadRecords, getFilterRecords }) {
 HomePage.propTypes = {
   records: PropTypes.array.isRequired,
   loadRecords: PropTypes.func.isRequired,
+  getFilterRecords: PropTypes.func.isRequired,
 };
 
 const mapStateToPorps = ({ records }) => {
@@ -103,6 +113,7 @@ const mapStateToPorps = ({ records }) => {
 
 const mapDispatchToProps = {
   loadRecords: loadRecords,
+  getFilterRecords: getFilterRecords,
 };
 
 export default connect(mapStateToPorps, mapDispatchToProps)(HomePage);

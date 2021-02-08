@@ -9,7 +9,7 @@ export function getFilterRecords(field, value) {
   return fetch(baseUrl)
     .then(handleResponse)
     .then((records) => {
-      console.log(records);
+      // console.log(field, value);
       const rec = records.filter((r) => r[field] > value);
       return rec;
     })
