@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: space-around;
   background-color: #888;
+  height: 50px;
 }
 
 .main-home__filter_value .main-home__filter_key {

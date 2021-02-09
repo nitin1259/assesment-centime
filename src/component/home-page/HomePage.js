@@ -53,10 +53,10 @@ function HomePage({ records, loadRecords, getFilterRecords }) {
       console.log("Error getting record " + error);
     });
 
-    const somedata = records.map((rec) => {
-      return [rec.from_party, rec.to_party, rec.amount];
-    });
-    setData(somedata);
+    // const somedata = records.map((rec) => {
+    //   return [rec.from_party, rec.to_party, rec.amount];
+    // });
+    // setData(somedata);
   };
 
   return (
