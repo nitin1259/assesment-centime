@@ -7,13 +7,14 @@ import {
   getFilterRecords,
 } from "./../../redux/actions/recordActions";
 import RecordPage from "../record/RecordPage";
+import { GREATER, LESSER, EQUALS } from "../../config/constants";
 // import * as recordApi from "./../../api/recordsApi";
 import "./HomePage.css";
 
 function HomePage({ records, loadRecords, getFilterRecords }) {
   const [data, setData] = useState(null);
   const [fieldValue, setFeildValue] = useState("");
-  const [operatorValue, setOperatorValue] = useState("greaterthan");
+  const [operatorValue, setOperatorValue] = useState(GREATER);
   const [fieldKey, setFieldKey] = useState("amount");
 
   useEffect(() => {
@@ -78,9 +79,9 @@ function HomePage({ records, loadRecords, getFilterRecords }) {
           onChange={handleChange}
           className="main-home__filter_operator"
         >
-          <option value="greaterthan ">{">"}</option>
-          <option value="lowerthan">{"<"}</option>
-          <option value="equals">{"="}</option>
+          <option value={GREATER}>{">"}</option>
+          <option value={LESSER}>{"<"}</option>
+          <option value={EQUALS}>{"="}</option>
         </select>
         <input
           value={fieldValue}
