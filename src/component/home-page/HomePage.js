@@ -39,6 +39,7 @@ function HomePage({ records, loadRecords, getFilterRecords }) {
         setFieldKey(e.target.value);
         break;
       case "operatorValue":
+        console.log("coming in ", e.target.value);
         setOperatorValue(e.target.value);
         break;
 
@@ -50,7 +51,7 @@ function HomePage({ records, loadRecords, getFilterRecords }) {
   const handleClick = () => {
     console.log("handle click");
     // TODO
-    getFilterRecords(fieldKey, fieldValue).catch((error) => {
+    getFilterRecords(fieldKey, fieldValue, operatorValue).catch((error) => {
       console.log("Error getting record " + error);
     });
 

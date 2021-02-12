@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import * as recordApi from "./../../api/recordsApi";
+import { GREATER } from "../../config/constants";
 
 export function loadRecords() {
   return function (dispatch) {
@@ -14,11 +15,11 @@ export function loadRecords() {
   };
 }
 
-export function getFilterRecords(field = "amount", value = 0) {
+export function getFilterRecords(field = "amount", value = 0, operatorValue) {
   return function (dispatch) {
     // console.log(field, value);
     return recordApi
-      .getFilterRecords(field, value)
+      .getFilterRecords(field, value, operatorValue)
       .then((records) => {
         dispatch({ type: actionTypes.LOAD_RECORDS, records });
       })
