@@ -23,7 +23,7 @@ export function getFilterRecords(field, value, operatorValue) {
           rec = records.filter((r) => r[field] == value);
           break;
         default:
-          rec = records.filter((r) => r[field] > value);
+          rec = records;
           break;
       }
 
